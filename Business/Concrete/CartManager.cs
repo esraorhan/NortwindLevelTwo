@@ -33,7 +33,7 @@ namespace Business.Concrete
 
         public void RemoveFromCart(Cart cart, int productId)
         {
-            cart.CartLines.Remove(cart.CartLines.FirstOrDefault(c => c.Product.ProductId == productId))
+            cart.CartLines.Remove(cart.CartLines.FirstOrDefault(c => c.Product.ProductId == productId));
         }
     }
 }

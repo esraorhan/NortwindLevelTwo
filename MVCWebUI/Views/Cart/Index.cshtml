@@ -1,0 +1,36 @@
+﻿
+@model CardListViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sepetiniz</h1>
+<table class="table table-responsive-lg">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün Adı</th>
+            <th>Açıklama</th>
+            <th>Fiayt</th>
+            <th>Stok</th>
+            <th>Toplam</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cartline in Model.Cart.CartLines)
+        {
+            <tr>
+                <td>@cartline.Product.ProductId</td>
+                <td>@cartline.Product.ProductName</td>
+                <td>@cartline.Product.QuantityPerUnit</td>
+                <td>@cartline.Product.UnitPrice</td>
+                <td>@cartline.Product.UnitsInStock</td>
+                <td>@cartline.Quantity</td>
+                <td><a class="btn btn-sm btn-danger" asp-controller="Cart" asp-action="RemoveFromCart" asp-route-productId="@cartline.Product.ProductId">SİL</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
