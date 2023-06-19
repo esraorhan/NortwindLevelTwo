@@ -18,13 +18,6 @@ namespace MVCWebUI.Controllers
             _categoryDal = categoryDal;
         }
 
-        public IActionResult Index()
-        {
-            var model = new CategoryListViewModel
-            {
-                Categories = _categoryDal.GetList()
-            };
-            return View(model);
-        }
+       
     }
 }
