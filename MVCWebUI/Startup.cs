@@ -2,6 +2,7 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,7 @@ using MVCWebUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace MVCWebUI
@@ -38,7 +40,9 @@ namespace MVCWebUI
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                .AddFluentValidation(option =>
+                option.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
            
         }
 

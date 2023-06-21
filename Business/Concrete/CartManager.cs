@@ -11,7 +11,8 @@ namespace Business.Concrete
     public class CartManager : ICartService
     {
 
-        //business da session kodu yazılmaz.Referans type tekrar et !! obje or
+        //business da session kodu yazılmaz.Referans type tekrar et !! obje or 
+        // interface , class , abstracclass arrayler referans tiplerdir.
         public void AddToCart(Cart cart, Product product) //sepete ekleme olayı 
         {
             CartLine cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == product.ProductId);
